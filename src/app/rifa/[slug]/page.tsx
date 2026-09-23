@@ -13,7 +13,7 @@ const getRaffle = cache(async (slug: string): Promise<PublicRaffle | null> => {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) return null;
-  const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
+  const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false },global:{feach:input,init)=>fetch(input,{...(init??{}),cahce:'no-store'}),},});
   const { data, error } = await supabase.rpc('get_public_raffle', { p_slug: slug });
   if (error || !data) return null;
   return data as PublicRaffle;
