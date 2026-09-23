@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+  }
+  h1, h2, h3 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-[2.75rem] items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-sm {
+    @apply min-h-[2.25rem] px-3 py-1.5 text-xs;
+  }
+  .btn-primary {
+    @apply bg-brand-600 text-white hover:bg-brand-700 active:bg-brand-800;
+  }
+  .btn-secondary {
+    @apply border border-slate-300 bg-white text-ink hover:bg-slate-50;
+  }
+  .btn-danger {
+    @apply border border-red-200 bg-white text-red-700 hover:bg-red-50;
+  }
+  .btn-danger-solid {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+  .btn-ghost {
+    @apply text-slate-600 hover:bg-slate-100;
+  }
+  .input {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-base text-ink placeholder:text-slate-400 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200 sm:text-sm;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-slate-700;
+  }
+  .hint {
+    @apply mt-1 text-xs text-slate-500;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-lg border px-2 py-0.5 text-xs font-semibold tabular-nums;
+  }
+
+  /* Boleta con muescas laterales: el sello visual de la app */
+  .stub {
+    -webkit-mask:
+      radial-gradient(circle 5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle 5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+    mask:
+      radial-gradient(circle 5px at 0 50%, #0000 96%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle 5px at 100% 50%, #0000 96%, #000) right / 51% 100% no-repeat;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
